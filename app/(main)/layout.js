@@ -1,3 +1,4 @@
+import SiteFooter from '@/components/site-footer';
 import React from 'react';
 
 const MainLayout = ({children}) => {
@@ -5,6 +6,8 @@ const MainLayout = ({children}) => {
         <div>
             
             <main> {children} </main>
+            <SiteFooter/>
+
         </div>
     );
 };
