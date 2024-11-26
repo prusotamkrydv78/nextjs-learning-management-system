@@ -5,6 +5,7 @@ import CourseDetails from "./_components/CourseDetails";
 import Testimonials from "./_components/Testimonials";
 import RelatedCourses from "./_components/RelatedCourses";
 import { getCourseDetails } from "@/queries/courses";
+import { replaceMongoIdInArray } from "@/lib/convertData";
  
 const SingleCoursePage = async ({ params: {id} }) => {
 
@@ -20,8 +21,10 @@ const SingleCoursePage = async ({ params: {id} }) => {
       />
 
       <CourseDetails/>
-
-      <Testimonials/> 
+    {
+      course?.testimonials && <Testimonials testimonials={replaceMongoIdInArray(course?.testimonials)} />   
+    }
+      
       
      <RelatedCourses/>
       
