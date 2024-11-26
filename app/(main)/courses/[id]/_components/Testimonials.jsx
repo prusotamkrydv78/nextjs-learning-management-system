@@ -1,7 +1,6 @@
 import { Carousel,CarouselContent,CarouselItem,CarouselNext,CarouselPrevious } from "@/components/ui/carousel";
 import Image from "next/image";
 import { SectionTitle } from "@/components/section-title";
-
 const courses = [
     {
       id: 1,
