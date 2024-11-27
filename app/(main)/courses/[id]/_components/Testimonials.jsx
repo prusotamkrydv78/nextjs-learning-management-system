@@ -4,7 +4,7 @@ import { SectionTitle } from "@/components/section-title";
 import StarRating from "@/components/start-rating";
  
 const Testimonials = ({testimonials}) => {
-    console.log(testimonials);
+   // console.log(testimonials);
 
     return (
        
