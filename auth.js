@@ -1,12 +1,12 @@
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { User } from "./model/user-model";
-import { bcrypt } from 'bcryptjs';
+import bcrypt from 'bcryptjs';
 
 export const {
     handlers: {GET, POST},
     auth,
-    singIn,
+    signIn,
     signOut,
 } = NextAuth({
     session: {
@@ -22,7 +22,7 @@ export const {
             console.log(user);
 
             if (user) {
-                const isMatch = await bcrypt.compare(credentials?.password, user.password )
+                const isMatch = await bcrypt.compare(credentials.password, user.password )
 
                 if (isMatch) {
                     return user;
@@ -40,7 +40,7 @@ export const {
             console.error(err);
             throw new Error(err);
         }  
-        
+
             }
         })
 
