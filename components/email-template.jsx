@@ -27,7 +27,7 @@ export const EmailTemplate = ({ message }) => {
                 textAlign: "center",
               }}
             >
-              Your Message
+           Easy LMS
             </h1>
           </div>
           <div style={{ padding: "20px" }}>
