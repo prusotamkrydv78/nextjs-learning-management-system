@@ -14,7 +14,7 @@ const CourseInstructor = async ({course}) => {
 
   const courseDetailsByInstructor = await getCourseDetailsByInstructor(instructor._id.toString());
 
-  console.log(courseDetailsByInstructor);
+  // console.log(courseDetailsByInstructor);
 
     return (
         <div className="bg-gray-50 rounded-md p-8">

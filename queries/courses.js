@@ -29,7 +29,7 @@ export async function getCourseDetails(id) {
     const course = await Course.findById(id)
     .populate({
         path: "category",
-        model: Category
+        model: Category 
     }).populate({
         path: "instructor",
         model: User
