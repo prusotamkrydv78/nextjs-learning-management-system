@@ -8,7 +8,7 @@ import { getUserByEmail } from "@/queries/users";
 import { CircleCheck } from "lucide-react";
 import Link from "next/link";
 import { redirect } from "next/navigation";
-
+ 
 const Success = async ({ searchParams : {session_id, courseId} }) => {
 
   if (!session_id) {
