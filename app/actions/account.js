@@ -14,3 +14,7 @@ export async function updateUserInfo(email,updatedData){
 
 }
 // End method 
+
+export async function changePassword(email, oldPassword, newPassword) {
+    
+}
