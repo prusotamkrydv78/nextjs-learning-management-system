@@ -98,7 +98,7 @@ const MainNav = ({items,children}) => {
         <DropdownMenuTrigger asChild>
             <div className='cursor-pointer'>
     <Avatar>
-    <AvatarImage src="https://github.com/shadcn.png" alt="@ariyan" />
+    <AvatarImage src={loggedInUser?.profilePicture} alt="@ariyan" />
     <AvatarFallback>CN</AvatarFallback> 
     </Avatar>
             </div> 
@@ -108,6 +108,15 @@ const MainNav = ({items,children}) => {
         <DropdownMenuItem className="cursor-pointer" asChild>
             <Link href='/account'>Profile</Link> 
         </DropdownMenuItem>
+
+        {loggedInUser?.role === "instructor" && (
+            <DropdownMenuItem className="cursor-pointer" asChild>
+            <Link href='/dashboard'> <strong>Instructor Dashboard</strong> </Link> 
+        </DropdownMenuItem>
+        )}
+
+
+
         <DropdownMenuItem className="cursor-pointer" asChild>
             <Link href='/account/enrolled-courses'>My Courses</Link> 
         </DropdownMenuItem> 
