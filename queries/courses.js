@@ -60,7 +60,7 @@ function groupBy(array, keyFn){
 }
 
 
-export async function getCourseDetailsByInstructor(instructorId){
+export async function getCourseDetailsByInstructor(instructorId,expand){
     const courses = await Course.find({instructor: instructorId })
     .populate({path: "category", model: Category })
     .populate({ path: "instructor", model: User})
@@ -115,6 +115,14 @@ export async function getCourseDetailsByInstructor(instructorId){
 
     const insImage = courses.length > 0 ? courses[0]?.instructor?.
     profilePicture : "Unknown"; 
+
+    if (expand) {
+        return{
+        "courses" : courses?.flat(),
+        "enrollments": enrollments?.flat(),
+        "reviews" : totalTestimonials,
+        }
+    }
 
     return {
         "courses" : courses.length,
