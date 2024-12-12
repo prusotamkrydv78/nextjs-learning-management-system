@@ -11,7 +11,7 @@ const StarRating = ({rating}) => {
             <Image alt='Rating' key={index} src={`/assets/star.svg`} width={20} height={20} />
         )) 
         }
-            
+             
         </>
     );
 };
