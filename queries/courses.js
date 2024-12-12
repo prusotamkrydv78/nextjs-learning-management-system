@@ -8,7 +8,7 @@ import { getEnrollmentsForCourse } from "./enrollments";
 import { getTestimonialsForCourse } from "./testimonials";
 
 export async function getCourseList() {
-    const courses = await Course.find({}).select(["title","subtitle","thumbnail","modules","price","category","instructor"]).populate({
+    const courses = await Course.find({active:true}).select(["title","subtitle","thumbnail","modules","price","category","instructor"]).populate({
         path: "category",
         model: Category
     }).populate({
