@@ -25,6 +25,7 @@ import {
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
+
 const formSchema = z.object({
   title: z.string().min(1, {
     message: "Title is required!",
@@ -45,6 +46,7 @@ const AddCourse = () => {
     },
   });
 
+  
   const { isSubmitting, isValid } = form.formState;
 
   const onSubmit = async (values) => {
@@ -56,6 +58,7 @@ const AddCourse = () => {
     }
     console.log(values);
   };
+
   return (
     <div className="max-w-5xl mx-auto flex md:items-center md:justify-center h-full p-6">
       <div className="max-w-full w-[536px]">
