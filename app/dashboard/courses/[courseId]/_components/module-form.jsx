@@ -77,7 +77,7 @@ export const ModulesForm = ({ initialData, courseId }) => {
     } catch (error) {
       toast.error("Something went wrong");
     }
-  };
+  }; 
 
   const onReorder = async (updateData) => {
     console.log({ updateData });
