@@ -9,7 +9,7 @@ import {
   Form,
   FormControl,
   FormField,
-  FormItem,
+  FormItem, 
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
@@ -35,7 +35,7 @@ const initialModules = [
   },
 ];
 export const ModulesForm = ({ initialData, courseId }) => {
-  const [modules, setModules] = useState(initialModules);
+  const [modules, setModules] = useState(initialData);
   const router = useRouter();
   const [isCreating, setIsCreating] = useState(false);
   const [isUpdating, setIsUpdating] = useState(false);
