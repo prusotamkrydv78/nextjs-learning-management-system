@@ -20,6 +20,7 @@ import { useState } from "react";
 import { toast } from "sonner";
 import { VideoPlayer } from "@/components/video-player";
 import { formatDuration} from "@/lib/date";
+import { updateLesson } from "@/app/actions/lesson";
  
 const formSchema = z.object({
   url: z.string().min(1, {
@@ -43,16 +44,26 @@ export const VideoUrlForm = ({ initialData, courseId, lessonId }) => {
 
   const form = useForm({
     resolver: zodResolver(formSchema),
-    defaultValues: initialData,
+    defaultValues: state,
   });
 
   const { isSubmitting, isValid } = form.formState;
 
   const onSubmit = async (values) => {
     try {
-      toast.success("Lesson updated");
-      toggleEdit();
+      const payload = {};
+      payload["video_url"] = values?.url;
+      const duration = values?.duration;
+      const splitted = duration.split(":");
+      if (splitted.length === 3) {
+        payload["duration"] = splitted[0] * 3600 + splitted[1] * 60 + splitted[2] * 1;
+        await updateLesson(lessonId,payload)
+        toast.success("Lesson updated");
+        toggleEdit();
       router.refresh();
+      } else {
+        toast.error("The duration format must be as hh:mm:ss");
+      } 
     } catch {
       toast.error("Something went wrong");
     }
@@ -76,10 +87,10 @@ export const VideoUrlForm = ({ initialData, courseId, lessonId }) => {
       {!isEditing && (
         <>
           <p className="text-sm mt-2">
-            {"https://www.youtube.com/embed/LJi2tiWiYmI?si=-vs8fO-xzWmu7ztG"}
+            {state?.url}
           </p>
           <div className="mt-6">
-            <VideoPlayer />
+            <VideoPlayer url={state?.url} />
           </div>
         </>
       )}
