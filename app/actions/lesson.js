@@ -3,6 +3,7 @@
 import { Lesson } from "@/model/lesson.model";
 import { Module } from "@/model/module.model"; 
 import { create } from "@/queries/lessons";
+import mongoose from "mongoose";
 
 export async function createLesson(data){
     try {
@@ -54,6 +55,17 @@ export async function changeLessonPublishState(lessonId) {
         throw new Error(error);
     }
 
+}
+
+export async function deleteLesson(lessonId, moduleId){
+    try {
+        const module = await Module.findById(moduleId);
+        module.lessonIds.pull(new mongoose.Types.ObjectId(lessonId));
+        await Lesson.findByIdAndDelete(lessonId);
+        module.save();
+    } catch (err) {
+        throw new Error(err);
+    }
 }
 
 
