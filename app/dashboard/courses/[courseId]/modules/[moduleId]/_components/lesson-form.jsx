@@ -26,7 +26,7 @@ import { createLesson, reOrderLesson } from "@/app/actions/lesson";
 const formSchema = z.object({
   title: z.string().min(1),
 });
- 
+  
 export const LessonForm = ({ initialData, moduleId,courseId }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [lessons, setLessons] = useState(initialData);
@@ -163,7 +163,7 @@ export const LessonForm = ({ initialData, moduleId,courseId }) => {
           Drag & Drop to reorder the modules
         </p>
       )}
-      <LessonModal open={isEditing} setOpen={setIsEditing} courseId={courseId} lesson={lessonToEdit} />
+      <LessonModal open={isEditing} setOpen={setIsEditing} courseId={courseId} lesson={lessonToEdit} moduleId={moduleId} />
     </div>
   );
 };

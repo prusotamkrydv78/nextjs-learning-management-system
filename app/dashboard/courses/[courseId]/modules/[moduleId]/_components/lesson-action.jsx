@@ -4,7 +4,8 @@ import { Trash } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 
-export const CourseActions = ({ isPublished = false }) => {
+export const LessonActions = ({ lesson,moduleId,onDelete }) => {
+    
   return (
     <div className="flex items-center gap-x-2">
       <Button variant="outline" size="sm">
