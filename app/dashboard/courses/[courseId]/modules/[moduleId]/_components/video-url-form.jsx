@@ -6,7 +6,7 @@ import * as z from "zod";
 
 import { Button } from "@/components/ui/button";
 import {
-  Form,
+  Form, 
   FormControl,
   FormField,
   FormItem,
@@ -19,7 +19,8 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { toast } from "sonner";
 import { VideoPlayer } from "@/components/video-player";
-
+import { formatDuration} from "@/lib/date";
+ 
 const formSchema = z.object({
   url: z.string().min(1, {
     message: "Required",
@@ -32,6 +33,11 @@ const formSchema = z.object({
 export const VideoUrlForm = ({ initialData, courseId, lessonId }) => {
   const router = useRouter();
   const [isEditing, setIsEditing] = useState(false);
+
+  const [state, setState] = useState({
+    url: initialData?.url,
+    duration: formatDuration(initialData?.duration),
+  });
 
   const toggleEdit = () => setIsEditing((current) => !current);
 
