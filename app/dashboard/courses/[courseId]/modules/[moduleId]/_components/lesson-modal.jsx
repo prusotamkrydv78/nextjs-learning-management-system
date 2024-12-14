@@ -5,7 +5,7 @@ import {
   DialogDescription,
   DialogHeader,
   DialogTitle,
-  DialogTrigger,
+  DialogTrigger, 
 } from "@/components/ui/dialog";
 import { LayoutDashboard } from "lucide-react";
 import { Eye } from "lucide-react";
@@ -17,7 +17,9 @@ import { LessonDescriptionForm } from "./lesson-description-form";
 import { LessonAccessForm } from "./lesson-access-form";
 import { VideoUrlForm } from "./video-url-form";
 import { CourseActions } from "../../../_components/course-action";
-export const LessonModal = ({ open, setOpen }) => {
+
+export const LessonModal = ({ open, setOpen,courseId,lesson }) => {
+  
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       {/* <DialogTrigger>Open</DialogTrigger> */}
