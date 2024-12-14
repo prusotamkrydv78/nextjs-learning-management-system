@@ -44,6 +44,18 @@ export async function updateLesson(lessonId, data) {
     }
 }
 
+export async function changeLessonPublishState(lessonId) {
+    const lesson = await Lesson.findById(lessonId);
+    try {
+        const res = await Lesson.findByIdAndUpdate(lessonId, {active: !lesson.active},{lean:true});
+        return res.active
+
+    } catch (error) {
+        throw new Error(error);
+    }
+
+}
+
 
 
  
