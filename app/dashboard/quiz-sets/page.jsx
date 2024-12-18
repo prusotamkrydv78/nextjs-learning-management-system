@@ -8,7 +8,7 @@ const quizSets = [
     isPublished: true,
     totalQuiz: 10,
     quizes: [],
-  },
+  }, 
   {
     id: 2,
     title: "Think In A Redux Way",
