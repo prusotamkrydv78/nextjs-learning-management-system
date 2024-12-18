@@ -142,6 +142,7 @@ export const AddQuizForm = ({ quizSetId }) => {
           isTrue: false,
         },
       });
+      toast.success("Quiz Added Successfully")
      // toggleEdit();
       router.refresh(); 
     } else {
