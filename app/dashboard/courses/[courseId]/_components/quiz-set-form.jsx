@@ -30,7 +30,7 @@ export const QuizSetForm = ({
     {
       value: "quiz_set_1",
       label: "Quiz Set 1",
-    },
+    }, 
     {
       value: "2",
       label: "Quiz Set 2",
