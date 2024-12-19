@@ -11,7 +11,7 @@ const SingleCoursePage = async ({ params: {id} }) => {
 
     const course = await getCourseDetails(id);
      // console.log(course);
-
+  
   return (
     <>
       <CourseDetailsIntro course={course} />
@@ -21,7 +21,7 @@ const SingleCoursePage = async ({ params: {id} }) => {
       course?.testimonials && <Testimonials testimonials={replaceMongoIdInArray(course?.testimonials)} />   
     }
       
-      
+       
      <RelatedCourses/>
       
     </>
