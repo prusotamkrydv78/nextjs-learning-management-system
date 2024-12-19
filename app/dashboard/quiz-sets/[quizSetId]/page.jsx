@@ -52,11 +52,17 @@ const EditQuizSet = async ({ params: {quizSetId} }) => {
           {/* Quiz List */}
           <div className="max-lg:order-2">
             <h2 className="text-xl mb-6">Quiz List</h2>
-            <AlertBanner
+      {
+        quizzes.length === 0 && (
+             <AlertBanner
               label="No Quiz are in the set, add some using the form above."
               variant="warning"
               className="rounded mb-6"
             />
+        )
+      }    
+           
+            
             <div className="space-y-6">
               {quizzes.map((quiz) => {
                 return (
