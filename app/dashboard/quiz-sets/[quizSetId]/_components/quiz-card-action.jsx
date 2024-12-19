@@ -5,6 +5,8 @@ import { Button } from "@/components/ui/button";
 import { Delete } from "lucide-react";
 import { Trash } from "lucide-react";
 import { useRouter } from 'next/navigation';
+import { toast } from 'sonner';
+import { deleteQuiz } from '@/app/actions/quiz';
 
 export const QuizCardActions = ({quiz,quizSetId}) => {
 
@@ -12,10 +14,33 @@ export const QuizCardActions = ({quiz,quizSetId}) => {
     const [loading, setLoading] = useState(false);
     const router = useRouter();
 
-    async function handleSubmit(event) {
-        event.preventDefault();
-        console.log(action);
-    }
+async function handleSubmit(event) {
+    event.preventDefault();
+    try {
+        setLoading(true);
+
+    switch (action) {
+        case "edit-quiz": {
+            console.log(`Edting quiz: ${quiz.id} in quiz set: ${quizSetId} `)
+            break;
+        }
+        case "delete-quiz": {
+
+            await deleteQuiz(quizSetId, quiz.id);
+            toast.success("Quiz has been deleted");
+            router.refresh();
+            break; 
+        } 
+        default:{
+            throw new Error("Invalid Action");
+        }    
+     } 
+    } catch (e) {
+        toast.error(`Error: ${e.message}`);
+    }finally {
+        setLoading(false);
+    } 
+}
 
 
     return (
