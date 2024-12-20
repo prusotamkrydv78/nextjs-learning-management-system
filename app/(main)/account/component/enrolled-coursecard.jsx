@@ -4,6 +4,7 @@ import { BookOpen } from "lucide-react";
 import Image from "next/image";
 import { getCategoryDetails } from '@/queries/categories';
 import { getReport } from '@/queries/reports';
+import { CourseProgress } from '@/components/course-progress';
 
 const EnrolledCourseCard = async ({enrollment}) => {
    // console.log(enrollment);
@@ -93,7 +94,7 @@ const EnrolledCourseCard = async ({enrollment}) => {
                         {otherMarks}
                     </span>
                 </div>
-            </div>
+            </div> 
             <div className="flex items-center justify-between mb-4">
                 <span className="text-md md:text-sm font-medium text-slate-700">
                     Total Marks
@@ -102,6 +103,15 @@ const EnrolledCourseCard = async ({enrollment}) => {
                     {totalMarks}
                 </span>
             </div>
+
+        <CourseProgress
+            size="sm"
+            value={80}
+            variant={110 === 100 ? "success" : ""}
+         />
+
+
+
         </div>
     </div>
     );
