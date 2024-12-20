@@ -22,29 +22,29 @@ const CourseDetailsIntro = ({course}) => {
                   </span>
                 </p>
  
-                <div className="mt-6 flex items-center justify-center flex-wrap gap-3">
+    <div className="mt-6 flex items-center justify-center flex-wrap gap-3">
 
-                  <EnrollCourse courseId={course?.id}/>
-                  
-                  <Link
-                    href=""
-                    className={cn(
-                      buttonVariants({ variant: "outline", size: "lg" })
-                    )}
-                  >
-                    See Intro
-                  </Link>
-                  <Link
-                    href=""
-                    className={cn(
-                      buttonVariants({ variant: "destructive", size: "lg" })
-                    )}
-                  >
-                   Price : ${course?.price}
-                  </Link>
-                </div>
-              </div>
-            </div>
+      <EnrollCourse courseId={course?.id}/>
+      
+      <Link
+        href=""
+        className={cn(
+          buttonVariants({ variant: "outline", size: "lg" })
+        )}
+      >
+        See Intro
+      </Link>
+      <Link
+        href=""
+        className={cn(
+          buttonVariants({ variant: "destructive", size: "lg" })
+        )}
+      >
+        Price : ${course?.price}
+      </Link>
+    </div>
+  </div>
+</div>
 
             <div className="pb-12  mt-6">
               <div className="relative">
