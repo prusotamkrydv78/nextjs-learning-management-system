@@ -1,5 +1,4 @@
-"use client";
-import { useState } from "react";
+ 
 import { CourseProgress } from "@/components/course-progress";
 import {
   Accordion,
@@ -19,23 +18,29 @@ import { GiveReview } from "./give-review";
 import { SidebarModules } from "./sidebar-modules";
 import { getCourseDetails } from "@/queries/courses";
 import { getLoggedInUser } from "@/lib/loggedin-user";
+import { Watch } from "@/model/watch-model";
 
 export const CourseSidebar = async ({courseId}) => {
 
   const course = await getCourseDetails(courseId);
   const loggedinUser = await getLoggedInUser();
 
-  const updatedataModules = await Promise.all(course?.modules.map(async(module) => {
+  const updatedModules = await Promise.all(course?.modules.map(async(module) => {
     const moduleId = module._id.toString();
     const lessons = module?.lessonIds;
 
   const updatedLessons = await Promise.all(lessons.map(async (lesson) => {
     const lessonId = lesson._id.toString();
-    
+    const watch = await Watch.findOne({lesson: lessonId, module:moduleId , user: loggedinUser.id }).lean();
+    if (watch?.state === 'completed') {
+      lessons.state = 'completed';
+    }
+    return lesson;
   }))
+    return module; 
+  }));
 
-
-  }))
+  //console.log(updatedModules);
 
   
 
@@ -52,7 +57,7 @@ export const CourseSidebar = async ({courseId}) => {
           }
         </div>
         
-        <SidebarModules/>
+        <SidebarModules courseId={courseId} modules={updatedModules} />
 
         <div className="w-full px-6">
         <GiveReview/>
