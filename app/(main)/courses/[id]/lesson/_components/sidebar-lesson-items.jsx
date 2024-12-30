@@ -14,20 +14,20 @@ export const SidebarLessonItem = ({courseId,lesson,module}) => {
       return lesson?.state === "completed";
     } 
 
-    return (
+    return ( 
         <Link
-                href={
-                  isPrivate(lesson)
-                  ? "#"
-                  : `/courses/${courseId}/lesson?name=${lesson.slug}$module=${module}`
-                }
-                className={cn(
-                  "flex items-center gap-x-2 text-slate-500 text-sm font-[500]  transition-all hover:text-slate-600 ",
-                  isPrivate(lesson) 
-                  ? "text-slate-700  hover:text-slate-700 cursor-default" 
-                  : isCompleted(lesson) && "text-emerald-700 hover:text-emerald-700"
-                )}
-              >
+        href={
+          isPrivate(lesson)
+          ? "#"
+          : `/courses/${courseId}/lesson?name=${lesson.slug}&module=${module}`
+        }
+        className={cn(
+          "flex items-center gap-x-2 text-slate-500 text-sm font-[500]  transition-all hover:text-slate-600 ",
+          isPrivate(lesson) 
+          ? "text-slate-700  hover:text-slate-700 cursor-default" 
+          : isCompleted(lesson) && "text-emerald-700 hover:text-emerald-700"
+        )}
+      >
       <div className="flex items-center gap-x-2">
       {
         isPrivate(lesson) ? (
