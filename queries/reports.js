@@ -16,3 +16,7 @@ export async function getReport(filter){
     }
      
 }
+
+export async function createWatchReport(data){
+    
+}
