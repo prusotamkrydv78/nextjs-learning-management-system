@@ -44,7 +44,7 @@ export async function createWatchReport(data){
 
     const module = await Module.findById(data.moduleId);
     const lessonIdsToCheck = module.lessonIds;
-    const completedLessonsIds = report.totalCompletedModeules;
+    const completedLessonsIds = report.totalCompletedLessons;
 
     const isModuleComplete = lessonIdsToCheck.every((lesson) => 
         completedLessonsIds.includes(lesson)
@@ -64,7 +64,7 @@ export async function createWatchReport(data){
     const course = await getCourseDetails(data.courseId);
     const modulesInCourse = course?.modules;
     const moduleCount = modulesInCourse?.length ?? 0;
-
+     
     const completedModule = report.totalCompletedModeules;
     const completedModuleCount = completedModule?.length ?? 0;
 
