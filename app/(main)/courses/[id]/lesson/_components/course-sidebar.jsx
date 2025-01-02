@@ -85,7 +85,7 @@ function sanitizeData(data) {
               <CourseProgress variant="success" value={totalProgress} />
             </div>
           }
-        </div>
+        </div> 
         
         <SidebarModules courseId={courseId} modules={updatedallModules} />
 

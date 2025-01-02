@@ -60,7 +60,7 @@ export async function createWatchReport(data){
     }
 
     /// Check if the course has completed
-
+ 
     const course = await getCourseDetails(data.courseId);
     const modulesInCourse = course?.modules;
     const moduleCount = modulesInCourse?.length ?? 0;
