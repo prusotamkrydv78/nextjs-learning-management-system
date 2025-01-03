@@ -39,6 +39,6 @@ const Course = async ({ params: {id}, searchParams: { name,module} }) => {
 				</div>
 			</div>
 		</div>
-	);
+	); 
 };
 export default Course;
