@@ -75,6 +75,13 @@ function sanitizeData(data) {
   );
 }
 
+  const quizSetall = course?.quizSet;
+  const isQuizComplete = report?.quizAssessment ? true : false;
+  const quizSet = sanitizeData(quizSetall);
+
+  console.log({quizSet});
+  console.log({isQuizComplete});
+
   return (
     <>
       <div className="h-full border-r flex flex-col overflow-y-auto shadow-sm">
@@ -91,7 +98,10 @@ function sanitizeData(data) {
         <SidebarModules courseId={courseId} modules={updatedallModules} />
 
         <div className="w-full px-4 lg:px-14 pt-10 border-t">
-          <Quiz/>
+          {
+            quizSet && <Quiz courseId={courseId} quizSet={quizSet} isTaken={isQuizComplete} />
+          }
+          
         </div>
 
         <div className="w-full px-6 mb-10">
