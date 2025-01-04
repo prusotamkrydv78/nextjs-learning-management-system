@@ -6,6 +6,7 @@ import { Quiz } from "@/model/quizzes-model";
 import mongoose from "mongoose";
 import { Assessment } from "@/model/assessment-model";
 import { getLoggedInUser } from "@/lib/loggedin-user";
+import { createAssessmentReport } from "@/queries/reports";
 
 
 export async function updateQuizSet(quizset, dataToUpdate){
@@ -132,10 +133,11 @@ export async function addQuizAssessment(courseId,quizSetId,answers) {
 
       const assessment = await Assessment.create(assessmentEntry);
       const loggedInUser = await getLoggedInUser();
-      
+
+      await createAssessmentReport({ courseId:courseId, userId:loggedInUser.id, quizAssessment: assessment?._id }); 
 
     } catch (error) {
-        
+        throw new Error(error);
     }
 
 }
