@@ -105,7 +105,7 @@ function sanitizeData(data) {
         </div>
 
         <div className="w-full px-6 mb-10">
-        <GiveReview/>
+        <GiveReview courseId={courseId} loginid={loggedinUser.id} /> 
         <DownloadCertificate courseId={courseId} totalProgress={totalProgress}  />
         </div> 
 
