@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import React from 'react';
-
+ 
 const element = () => {
     return (
 <div className='bg-darkBlue min-h-screen px-0 py-12'>
