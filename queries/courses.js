@@ -174,3 +174,14 @@ export async function getCoursesByCategory(categoryId){
     }
 
 }
+
+export const getCategoryById = async (categoryId) => {
+
+    try {
+        const category = await Category.findById(categoryId);
+        return category;
+    } catch (error) {
+        throw new Error(error);
+    }
+
+}
