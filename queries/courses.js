@@ -162,3 +162,15 @@ export async function create(courseData) {
         throw new Error(error);
     }
 }
+
+
+export async function getCoursesByCategory(categoryId){
+
+    try {
+        const courses = await Course.find({ category: categoryId}).populate("category").lean();
+        return courses; 
+    } catch (error) {
+        throw new Error(error);
+    }
+
+}
