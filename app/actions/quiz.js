@@ -87,3 +87,7 @@ export async function doCreateQuizSet(data){
     }
 
 }
+
+export async function addQuizAssessment(courseId,quizSetId,answers) {
+
+}
