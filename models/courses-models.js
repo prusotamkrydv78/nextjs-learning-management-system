@@ -41,6 +41,7 @@ const courseSchema = new mongoose.Schema(
         quizSet: {
             required: true,
             type: [Schema.ObjectId],
+            ref: "Quiz",
         },
         subtitle: {
             type: String,
