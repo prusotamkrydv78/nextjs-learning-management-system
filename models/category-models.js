@@ -1,6 +1,6 @@
 import mongoose from 'mongoose'
 
-const categorySchema = new mongoose.Schema({
+const categorySchema =  mongoose.Schema({
     title: {
         type: String,
         required: true,
@@ -17,6 +17,6 @@ const categorySchema = new mongoose.Schema({
 
 })
 
-const CategoryModel = mongoose.models.categories || mongoose.model('categories', categorySchema)
+const CategoryModel = mongoose.models.category ?? mongoose.model('category', categorySchema)
 
 export default CategoryModel

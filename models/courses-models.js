@@ -25,6 +25,7 @@ const courseSchema = new mongoose.Schema(
         category: {
             type: Schema.ObjectId,
             required: true,
+            ref: "category",
         },
         instructor: {
             type: Schema.ObjectId,
@@ -63,6 +64,6 @@ const courseSchema = new mongoose.Schema(
     { timestamps: true }
 );
 
-const CourseModels = mongoose.models.Course || mongoose.model("Course", courseSchema);
+const CourseModels = mongoose.models.Course ?? mongoose.model("Course", courseSchema);
 
 export default CourseModels;
