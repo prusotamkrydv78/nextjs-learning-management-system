@@ -32,17 +32,21 @@ const courseSchema = new mongoose.Schema(
             required: true,
         },
         modules: {
-            type: [Schema.ObjectId],
+            type: [
+                 mongoose.Schema.Types.ObjectId,
+            ],
+            ref: "modules",
             required: true,
         },
         testimonials: {
             required: true,
             type: [Schema.ObjectId],
+            ref: "testimonials",
         },
         quizSet: {
             required: true,
             type: [Schema.ObjectId],
-            ref: "Quiz",
+            ref: "quiz-set",
         },
         subtitle: {
             type: String,

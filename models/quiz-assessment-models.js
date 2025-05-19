@@ -24,6 +24,6 @@ const quizAssessmentSchema = new mongoose.Schema({
 })
 
 
-const QuizAssessmentModel = mongoose.models.QuizAssessmentModel || mongoose.model('QuizAssessment', quizAssessmentSchema)
+const QuizAssessmentModel = mongoose.models.QuizAssessment ?? mongoose.model('QuizAssessment', quizAssessmentSchema)
 
 export default QuizAssessmentModel

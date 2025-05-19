@@ -37,6 +37,6 @@ const livesSchema = new mongoose.Schema({
 }
 )
 
-const livesModel = mongoose.models.lives || mongoose.model("lives", livesSchema);
+const livesModel = mongoose.models.lives ?? mongoose.model("lives", livesSchema);
 
 export default livesModel;

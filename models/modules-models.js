@@ -35,6 +35,6 @@ const modulesSchema = new mongoose.Schema({
     },
 });
 
-const ModulesModel = mongoose.models.ModulesModel || mongoose.model("Modules", modulesSchema);
+const ModulesModel = mongoose.models.modules ?? mongoose.model("modules", modulesSchema);
 
 export default ModulesModel;

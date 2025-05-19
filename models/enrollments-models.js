@@ -25,6 +25,6 @@ const enrollmentSchema = new mongoose.Schema({
     }
 });
 
-const EnrollmentModel = mongoose.models.Enrollment || mongoose.model('Enrollment', enrollmentSchema);
+const EnrollmentModel = mongoose.models.Enrollment ??mongoose.model('Enrollment', enrollmentSchema);
 
 export default EnrollmentModel;

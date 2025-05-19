@@ -18,6 +18,6 @@ const certificateSchema = new mongoose.Schema({
     }
 }, { timestamps: true })
 
-const CertificateModel = mongoose.models.certificate ||  mongoose.model('certificate', certificateSchema)
+const CertificateModel = mongoose.models.certificate ??  mongoose.model('certificate', certificateSchema)
 
 export default CertificateModel;

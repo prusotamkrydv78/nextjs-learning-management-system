@@ -33,6 +33,6 @@ const lessonSchema = new mongoose.Schema(
     }
 );
 
-const LessonModel = mongoose.models.Lesson || mongoose.model("Lesson", lessonSchema);
+const LessonModel = mongoose.models.Lesson ?? mongoose.model("Lesson", lessonSchema);
 
 export default LessonModel;

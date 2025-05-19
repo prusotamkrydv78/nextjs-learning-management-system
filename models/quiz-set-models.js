@@ -30,6 +30,6 @@ const quizSetSchema = new mongoose.Schema({
     },
 })
 
-const QuizSetModel = mongoose.models.QuizSetModel || mongoose.model('QuizSet', quizSetSchema)
+const QuizSetModel = mongoose.models.quiz-set ?? mongoose.model('quiz-set', quizSetSchema)
 
 export default QuizSetModel
